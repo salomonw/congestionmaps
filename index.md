@@ -10,9 +10,11 @@ time-of-day, and peak capacity for each road segment.
 
 In this maps, we calculated the density of each TMC using the Greenshield model, then we compare this value with the capacity of TMC and indicate if the TMC was congested in that time interval or not. Then we add up all the congested time and plot the hours that each TMC experienced congestion. 
 
-[Congestion by time interval (TMC level)](road_all/index.html)
-[2012 - 2015 Congestion comparison (TMC level](road_comp/index.html)
-[2012 - 2015 Congestion comparison (ZipCode)](zips_comp/index.html)
+- [Congestion by time interval (TMC level)](road_all/index.html)
+
+- [2012 - 2015 Congestion comparison (TMC level](road_comp/index.html)
+
+- [2012 - 2015 Congestion comparison (ZipCode)](zips_comp/index.html)
 
 
 ## Related Publications
