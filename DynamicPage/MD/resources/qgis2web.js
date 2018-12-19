@@ -113,7 +113,7 @@ var onPointerMove = function(evt) {
     var currentFeatureKeys;
     var count = 1;
     var clusteredFeatures;
-    currentFeatureKeys = ["City", "County", "Zip", "Cong 2012", "Cong 2015", "q2wHide_congDiff", "Travel Time 2012", "Travel Time 2015", "Speed 2012", "Speed 2015", "Travel Time Diff", "Speed Diff", "Cong Diff"]
+    currentFeatureKeys = ["City", "County", "Zip", "Cong 2012", "Cong 2015", "q2wHide_congDiff", "Travel Time 2012", "Travel Time 2015", "Speed 2012", "Speed 2015", "Travel Time Diff", "Cong Diff"]
     map.forEachFeatureAtPixel(pixel, function(feature, layer) {
         // We only care about features from layers in the layersList, ignore
         // any other layers which the map might contain such as the vector
