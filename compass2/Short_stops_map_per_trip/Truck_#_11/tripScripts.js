@@ -1,14 +1,4 @@
-<!DOCTYPE html> 
-	<html> 
-	  <head> 	
- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"> 
- <link rel="stylesheet" href="style.css">
-	 <meta charset="utf-8"> 
-	    <title>Truck route</title> 
-
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&key=AIzaSyAoDnlU5ah3ILbZMSeR9uj5bj0ILz_1fBA"></script> 
-<script> 
-	// Adding 500 Data Points 
+// Adding 500 Data Points 
 	var map, pointarray, heatmap; 
 	 
 	var taxiData=[
@@ -122,66 +112,9 @@
 	   
 	 google.maps.event.addDomListener(window, 'load', initialize);  
 	   
- </script>  
 
 
-
-
-
-	   </head>  
-	   
-	   <body>  
-	   	
-	     <div id="map-canvas"></div>  
-
-
-    	<div class="topnav1">
-            <a class="active" href="https://salomonw.github.io/congestionmaps/DynamicPage/AM/index.html">Trips</a>
-            <a href="https://salomonw.github.io/congestionmaps/DynamicPage/MD/index.html">Trucks</a>
-            <a href="https://salomonw.github.io/congestionmaps/DynamicPage/PM/index.html">Areas</a>
-            <a href="https://salomonw.github.io/congestionmaps/DynamicPage/NT/index.html">Stats</a>
-
-         </div>
-
-
-		<div class="navbar">
-
-		  <div class="dropdown">
-		    <button onclick="myFunction()" class="dropbtn">Select truck</button>
-		    <div id="myDropdown" class="dropdown-content">
-		      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-		      <a href="#about">Truck: 1</a>
-		      <a href="#base">Truck: 2</a>
-		      <a href="#blog">Truck: 3</a>
-		      <a href="#contact">Truck: 4</a>
-		      <a href="#custom">Truck: 5</a>
-		      <a href="#support">Truck: 6</a>
-		      <a href="#tools">Truck: 7</a>
-		    </div>
-		  </div>
-
-		<div class="dropdown">
-		    <button onclick="myFunction()" class="dropbtn">Select trip</button>
-		    <div id="myDropdown" class="dropdown-content">
-		      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-		      <a href="#about">Trip: 1</a>
-		      <a href="#base">Trip: 2</a>
-		      <a href="#blog">Trip: 3</a>
-		      <a href="#contact">Trip: 4</a>
-		      <a href="#custom">Trip: 5</a>
-		      <a href="#support">Trip: 6</a>
-		      <a href="#tools">Trip: 7</a>
-		    </div>
-		  </div>
-		  </div> 
-
-	     
-	      </body>  
-	 
-	 
-	 
-<script>  
-	var flightPlanCoordinates = [
+var flightPlanCoordinates = [
  new google.maps.LatLng(-33.617230, -70.695370),
  new google.maps.LatLng(-33.613920, -70.696820),
  new google.maps.LatLng(-33.611320, -70.696010),
@@ -818,56 +751,46 @@
  new google.maps.LatLng(-33.617260, -70.695230),
  new google.maps.LatLng(-33.618400, -70.689200),]; 
 
+function initialize() {  
+	   var mapOptions = {   
+	     zoom: 11,   
+	     center: new google.maps.LatLng(-33.5064814,-70.6512282),   
+	 
+ mapTypeId: google.maps.MapTypeId.ROADMAP,   
+	   };   
+		 map = new google.maps.Map(document.getElementById('map-canvas'),   
+	         mapOptions);   
+		} 
 
- function initialize() {  
-  
-  
- 	   var mapOptions = {   
- 	     zoom: 11,   
- 	     center: new google.maps.LatLng(-33.5064814,-70.6512282),   
- 	 
-     mapTypeId: google.maps.MapTypeId.ROADMAP,   
- 	   };   
- 		 map = new google.maps.Map(document.getElementById('map-canvas'),   
- 	         mapOptions);   
- 		} 
-  
- 		var Parray = new google.maps.MVCArray(flightPlanCoordinates);   
-  
- 		var flightPath = new google.maps.Polyline( 
- {  
-  
- 		path: flightPlanCoordinates,  
- 	    geodesic: true, 	 
- 	    strokeColor: '#b42c44',  
- 	    strokeOpacity: 1.0,  
- 	 
-    strokeWeight: 2  
- 	  }); 
- 	  
- 	  flightPath.setMap(map);  
+		var Parray = new google.maps.MVCArray(flightPlanCoordinates);   
+
+		var flightPath = new google.maps.Polyline( 
+{  
+
+		path: flightPlanCoordinates,  
+	    geodesic: true, 	 
+	    strokeColor: '#b42c44',  
+	    strokeOpacity: 1.0,  
+	 
+		strokeWeight: 2  
+	  }); 
+	  
+	  flightPath.setMap(map);  
  	 
   
  		 
   
   
   
- 	function toggletrace() {   
- 	   flightPath.setMap(flightPath.getMap() ? null : map);   
- 	 }   
+function toggletrace() {   
+   flightPath.setMap(flightPath.getMap() ? null : map);   
+ }   
   
-  
- 	  
-</script>  
-  
-</head>   
- 	    
-<body>   
-
-  </body><script> 
-	var map, pointarray, heatmap; 
+  	  
+ 
+var map, pointarray, heatmap; 
 	 
-	var taxiData2=[
+var taxiData2=[
  new google.maps.LatLng(-33.617230, -70.695370),
  new google.maps.LatLng(-33.613920, -70.696820),
  new google.maps.LatLng(-33.611320, -70.696010),
@@ -1525,7 +1448,8 @@
 	   
 	 function toggleHeatmap2() {  
 	   heatmap2.setMap(heatmap2.getMap() ? null : map);  
-	 }  
+	 }
+	 
 	 function changeGradient2() {  
 	     
 	 var gradient = [  
@@ -1555,16 +1479,10 @@
 	 }  
 	   
 	 google.maps.event.addDomListener(window, 'load', initialize);  
-	   
-	     </script>  
-	   </head>  
-	   
-	   <body>  
 
-<script> 
-	var map, pointarray, heatmap; 
-	 
-	var taxiData3=[
+
+var map, pointarray, heatmap; 	 
+var taxiData3=[
  new google.maps.LatLng(-33.488780, -70.576360),
  new google.maps.LatLng(-33.488670, -70.576510),
  new google.maps.LatLng(-33.488550, -70.576480),
@@ -1623,124 +1541,92 @@
  new google.maps.LatLng(-33.594870, -70.709100),
  new google.maps.LatLng(-33.598480, -70.694440), ];  
 	 
-	 function initialize() {  
-	   var mapOptions = {  
-	     zoom: 11,  
-	     center: new google.maps.LatLng(-33.5064814,-70.6512282),  
-	     mapTypeId: google.maps.MapTypeId.ROADMAP,  
-	   };  
-	   map = new google.maps.Map(document.getElementById('map-canvas'),  
-	       mapOptions);  
-	    var pointArray3 = new google.maps.MVCArray(taxiData3);  
-	   
-	   heatmap3 = new google.maps.visualization.HeatmapLayer({  
-	     data: pointArray3,  
-	     radius: 25,  
-	     dissipating: true  
-	   });  
-	   
-	   toggletrace();
-	   changeGradient3();
-	   changeRadius3();
-	   changeRadius2();
-	   heatmap3.setMap(map);  
-	 }  
-	   
-	 function toggleHeatmap3() {  
-	   heatmap3.setMap(heatmap3.getMap() ? null : map);  
-	 }  
-	 function changeGradient3() {  
-	     
-	 var gradient = [  
-	     'rgba(0, 255, 255, 0)',  
-	     'rgba(0, 255, 255, 1)',  
-	     'rgba(0, 191, 255, 1)',  
-	     'rgba(0, 127, 255, 1)',  
-	     'rgba(0,  63, 255, 1)',  
-	     'rgba(0, 0, 255, 1)',  
-	     'rgba(0, 0, 223, 1)',  
-	     'rgba(0, 0, 191, 1)',  
-	     'rgba(0, 0, 159, 1)',  
-	     'rgba(0, 0, 127, 1)',  
-	     'rgba(63, 0, 91, 1)',  
-	     'rgba(127, 0, 63, 1)',  
-	     'rgba(191, 0, 31, 1)',  
-	     'rgba(255, 0, 0, 1)'  
-	   ]  
-	   heatmap3.set('gradient', heatmap3.get('gradient') ? null : gradient);  
-	 }  
-	 function changeRadius3() {  
-	   heatmap3.set('radius', heatmap3.get('radius') ? null : 20);  
-	 }  
-	   
-	 function  changeOpacity3() {  
-	   heatmap3.set('opacity', heatmap3.get('opacity') ? null : 0.2);  
-	 }  
-	   
-	 google.maps.event.addDomListener(window, 'load', initialize);  
-	   
-	     </script>  
+	function initialize() {  
+	var mapOptions = {  
+	 zoom: 11,  
+	 center: new google.maps.LatLng(-33.5064814,-70.6512282),  
+	 mapTypeId: google.maps.MapTypeId.ROADMAP,  
+	};  
+	map = new google.maps.Map(document.getElementById('map-canvas'),  
+	   mapOptions);  
+	var pointArray3 = new google.maps.MVCArray(taxiData3);  
+
+	heatmap3 = new google.maps.visualization.HeatmapLayer({  
+	 data: pointArray3,  
+	 radius: 25,  
+	 dissipating: true  
+	});  
+
+	toggletrace();
+	changeGradient3();
+	changeRadius3();
+	changeRadius2();
+	heatmap3.setMap(map);  
+	}  
+
+	function toggleHeatmap3() {  
+	heatmap3.setMap(heatmap3.getMap() ? null : map);  
+	}  
+	function changeGradient3() {  
+	 
+	var gradient = [  
+	 'rgba(0, 255, 255, 0)',  
+	 'rgba(0, 255, 255, 1)',  
+	 'rgba(0, 191, 255, 1)',  
+	 'rgba(0, 127, 255, 1)',  
+	 'rgba(0,  63, 255, 1)',  
+	 'rgba(0, 0, 255, 1)',  
+	 'rgba(0, 0, 223, 1)',  
+	 'rgba(0, 0, 191, 1)',  
+	 'rgba(0, 0, 159, 1)',  
+	 'rgba(0, 0, 127, 1)',  
+	 'rgba(63, 0, 91, 1)',  
+	 'rgba(127, 0, 63, 1)',  
+	 'rgba(191, 0, 31, 1)',  
+	 'rgba(255, 0, 0, 1)'  
+	]  
+	heatmap3.set('gradient', heatmap3.get('gradient') ? null : gradient);  
+	}  
+	function changeRadius3() {  
+	heatmap3.set('radius', heatmap3.get('radius') ? null : 20);  
+	}  
+
+	function  changeOpacity3() {  
+	heatmap3.set('opacity', heatmap3.get('opacity') ? null : 0.2);  
+	}  
+
+	google.maps.event.addDomListener(window, 'load', initialize);  
 
 
-		<script>
-		function myFunction() {
-		  var x = document.getElementById("myTopnav");
-		  if (x.className === "topnav") {
-		    x.className += " responsive";
-		  } else {
-		    x.className = "topnav";
-		  }
-		}
-		</script>
+	function myFunction() {
+	  var x = document.getElementById("myTopnav");
+	  if (x.className === "topnav") {
+	    x.className += " responsive";
+	  } else {
+	    x.className = "topnav";
+	  }
+	}
 
 
 
-	   </head>  
-	   
-	   <body>  
+	/* When the user clicks on the button,
+	toggle between hiding and showing the dropdown content */
+	function myFunction() {
+	  document.getElementById("myDropdown").classList.toggle("show");
+	}
 
-	   	
-
-
-	     <div class="btn-group">  
-	     	<button class="button" onclick="toggleHeatmap3()">Stops</button>  
-	     	<button class="button" onclick="toggleHeatmap()">Stop Length</button>
-	     	<button class="button" onclick="toggleHeatmap2()">GPS signal</button>
-	     	<button class="button" onclick="toggletrace()">Trace</button>
-	     </div>  
-
-
-
-				
-		<script>
-		/* When the user clicks on the button,
-		toggle between hiding and showing the dropdown content */
-		function myFunction() {
-		  document.getElementById("myDropdown").classList.toggle("show");
-		}
-
-		function filterFunction() {
-		  var input, filter, ul, li, a, i;
-		  input = document.getElementById("myInput");
-		  filter = input.value.toUpperCase();
-		  div = document.getElementById("myDropdown");
-		  a = div.getElementsByTagName("a");
-		  for (i = 0; i < a.length; i++) {
-		    txtValue = a[i].textContent || a[i].innerText;
-		    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-		      a[i].style.display = "";
-		    } else {
-		      a[i].style.display = "none";
-		    }
-		  }
-		}
-		</script>
-
-
-
-  <div id="panel5"> 
- <font color="#F0F8FF">  Truck #  11 </br>Trip #   2 </br>Begin:  11-Jul-2013 08:38:55 </br>End: 11-Jul-2013 21:44:54 </br>Time 13:05:58 hrs</br>Long stop lat: -33.618660 </br>Long stop lon: -70.687970 </br># short stops: 57 </br> Distance: 206.08 km </br>Speed: 30.14 km/hr</br>Fuel: 39.56 lts </br>Km/lts: 5.21 </br>Time in Short stops: 05:37:36  hrs</br> Time traveling: 07:28:22 hrs </br>STEM distance: 81.73 km</font> 
- </div>
- <img src="https://i.ibb.co/jMhzSXY/Capture.png">
-	      </body>  
-	 </html>
+	function filterFunction() {
+	  var input, filter, ul, li, a, i;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  div = document.getElementById("myDropdown");
+	  a = div.getElementsByTagName("a");
+	  for (i = 0; i < a.length; i++) {
+	    txtValue = a[i].textContent || a[i].innerText;
+	    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	      a[i].style.display = "";
+	    } else {
+	      a[i].style.display = "none";
+	    }
+	  }
+	}
